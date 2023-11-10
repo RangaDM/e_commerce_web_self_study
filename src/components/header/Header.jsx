@@ -13,7 +13,7 @@ const Header = () => {
     <header className=" fixed top-0 left-0 z-[100] w-full p-2 bg-my-background flex items-center justify-between drop-shadow-header-shadow">
       {/* left side */}
       <div className=" flex items-center">
-        <IconButton sx={{ color: "red" }}>
+      <IconButton sx={{ color: "red" }}>
           <MenuIcon
             sx={{
               color: "#c82196",
@@ -29,20 +29,19 @@ const Header = () => {
                   : "inline-block"
                 : "inline-block",
           }}
-          className=" ml-2 text-m font-bold"
+          className=" ml-4 text-m font-bold"
         >
           Learn <span className=" text-[#c82196]">S</span>
         </h1>
-        <div
-          style={{
+        <div style={{
             backgroundColor:
               window.innerWidth < 640
                 ? issearch
                   ? "#fdf3f3"
                   : "inherit"
-                : "#fdf3f3",
+                : "#6f86e4",
           }}
-          className=" overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]"
+          className=" overflow-hidden ml-4 h-11 flex items-center rounded-full bg-[#fdf3f3]"
         >
           <input
             type="text"
@@ -63,6 +62,7 @@ const Header = () => {
           </IconButton>
         </div>
       </div>
+
 
       {/* right side */}
       <IconButton>
