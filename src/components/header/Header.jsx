@@ -10,22 +10,17 @@ const Header = () => {
   const [issearch, setisSearch] = useState(false);
 
   return (
-    <header className=" fixed top-0 left-0 z-[100] w-full p-1 bg-my-background flex items-center justify-between drop-shadow-header-shadow">
+    <header className=" fixed top-0 left-0 z-[100] w-full p-2 bg-my-background flex items-center justify-between drop-shadow-header-shadow">
       {/* left side */}
-      <div className="flex">
-        <IconButton
-          sx={{
-            color: "red",
-          }}
-        >
+      <div className=" flex items-center">
+        <IconButton sx={{ color: "red" }}>
           <MenuIcon
             sx={{
-              color: "green",
+              color: "#c82196",
             }}
           />
         </IconButton>
-        <h4
-          className="text-sm font-bold pt-4 pl-3"
+        <h1
           style={{
             display:
               window.innerWidth < 640
@@ -34,11 +29,24 @@ const Header = () => {
                   : "inline-block"
                 : "inline-block",
           }}
+          className=" ml-2 text-m font-bold"
         >
-          LearnS
-        </h4>
-        <div className="flex">
+          Learn <span className=" text-[#c82196]">S</span>
+        </h1>
+        <div
+          style={{
+            backgroundColor:
+              window.innerWidth < 640
+                ? issearch
+                  ? "#fdf3f3"
+                  : "inherit"
+                : "#fdf3f3",
+          }}
+          className=" overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]"
+        >
           <input
+            type="text"
+            placeholder="Search"
             style={{
               display:
                 window.innerWidth < 640
@@ -46,9 +54,8 @@ const Header = () => {
                     ? "inline-block"
                     : "none"
                   : "inline-block",
+              transition: "all 400ms ease-in-out",
             }}
-            type="text"
-            placeholder="Search"
             className=" hidden sm:inline-block ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit"
           />
           <IconButton onClick={() => setisSearch(true)}>
@@ -56,8 +63,16 @@ const Header = () => {
           </IconButton>
         </div>
       </div>
+
       {/* right side */}
-      <ShoppingCartOutlinedIcon className="mx-2" />
+      <IconButton>
+        <div className=" relative p-1">
+          <ShoppingCartOutlinedIcon className=" text-black" />
+          <div className=" absolute top-[2px] right-0 text-[7px] font-semibold text-white bg-black flex items-center justify-center w-3 h-3 rounded-full">
+            2
+          </div>
+        </div>
+      </IconButton>
     </header>
   );
 };

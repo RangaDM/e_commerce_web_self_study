@@ -1,13 +1,13 @@
-// import { useState } from "react";
-// import Loading from "../../components/Loading/Loading";
+import { useState } from "react";
 import Ads from "./Ads";
 import Product from "./Product";
 import MainContainer from "../../Layout/MainContainer";
+import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // if (loading) return <Loading />;
+  if (loading) return <Loading/>;
 
   return (
     <MainContainer>

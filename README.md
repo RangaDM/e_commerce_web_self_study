@@ -75,3 +75,4 @@ icon from :- svgrepo free
 tailwindcss
 $ npm install swiper
 bg shadows :- search google : shadow example
+css loading generator : 10015tools

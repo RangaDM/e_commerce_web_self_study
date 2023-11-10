@@ -20,22 +20,26 @@ const Footer = () => {
         boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
       }}
     >
-      <FooterIcon
-        clickFun={{ whoIsClick, setWhoIsClick }}
-        Icon={HomeOutlinedIcon}
-        iconText="Home"
-      />
-      <FooterIcon
-        clickFun={{ whoIsClick, setWhoIsClick }}
-        Icon={AppsOutlinedIcon}
-        iconText="Category"
-      />
-      <div className="mx-2 md:flex-1 md:text-right">
+      <div className="ml-3 flex">
+        <FooterIcon
+          clickFun={{ whoIsClick, setWhoIsClick }}
+          Icon={HomeOutlinedIcon}
+          iconText="Home"
+        />
+        <div className="mr-3"/>
+        <FooterIcon
+          clickFun={{ whoIsClick, setWhoIsClick }}
+          Icon={AppsOutlinedIcon}
+          iconText="Category"
+        />
+      </div>
+      <div className="mr-3 ml-3 flex">
         <FooterIcon
           clickFun={{ whoIsClick, setWhoIsClick }}
           Icon={AccountCircleOutlinedIcon}
           iconText="Profile"
         />
+        <div className="mr-3"/>
         <FooterIcon
           clickFun={{ whoIsClick, setWhoIsClick }}
           Icon={AddTaskIcon}
@@ -81,7 +85,7 @@ const FooterIcon = ({ Icon, iconText, clickFun }) => {
       <IconButton
         sx={{
           padding: "4px",
-          marginLeft: "4px",
+          marginLeft: "8px",
           paddingTop: "0",
           borderRadius: "5px",
           color: "red",
