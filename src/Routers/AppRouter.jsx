@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import UserProtected from "./UserProtected";
 import Category from "../pages/category/Category";
 import CategoryItems from "../pages/CategoryItems/CategoryItems";
+import ItemPage from "../pages/ItemPage/ItemPage";
 
 const AppRouter = () => {
   return (
@@ -17,10 +18,13 @@ const AppRouter = () => {
           <Route element={<UserProtected />}>
             <Route path="profile" element={<User />} />
           </Route>
-            <Route path="category" >
-              <Route index element={<Category />} />
-              <Route path=":categoryID" element={<CategoryItems />} />
+          <Route path="category">
+            <Route index element={<Category />} />
+            <Route path=":categoryID">
+              <Route index element={<CategoryItems />} />
+              <Route path=":itemID" element={<ItemPage />} />
             </Route>
+          </Route>
         </Route>
         <Route path="login" element={<Login />} />
       </Routes>
