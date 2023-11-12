@@ -7,42 +7,42 @@ const categoryArr = [
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 1",
-    categoryID:'category 1'
+    categoryID:'category1'
   },
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 2",
-    categoryID:'category 2'
+    categoryID:'category2'
   },
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 3",
-    categoryID:'category 3'
+    categoryID:'category3'
   },
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 4",
-    categoryID:'category 4'
+    categoryID:'category4'
   },
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 5",
-    categoryID:'category 5'
+    categoryID:'category5'
   },
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 7",
-    categoryID:'category 7'
+    categoryID:'category7'
   },
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 8",
-    categoryID:'category 8'
+    categoryID:'category8'
   },
   {
     imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
     title: "Category name 9",
-    categoryID:'category 9'
+    categoryID:'category9'
   },
 ]
 
@@ -69,7 +69,7 @@ export default Category;
 
 const CategoryItem = ({imageURL , title , categoryID}) => {
   return (
-    <Link to={`category/${categoryID}`}>
+    <Link to={`/category/${categoryID}`}>
     <IconButton sx={{
       padding: 0,
       margin: 0,
