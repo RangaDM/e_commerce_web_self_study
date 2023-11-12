@@ -1,6 +1,50 @@
 import React from "react";
 import MainContainer from "../../Layout/MainContainer";
 import { IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
+
+const categoryArr = [
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 1",
+    categoryID:'category 1'
+  },
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 2",
+    categoryID:'category 2'
+  },
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 3",
+    categoryID:'category 3'
+  },
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 4",
+    categoryID:'category 4'
+  },
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 5",
+    categoryID:'category 5'
+  },
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 7",
+    categoryID:'category 7'
+  },
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 8",
+    categoryID:'category 8'
+  },
+  {
+    imageURL: "https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg",
+    title: "Category name 9",
+    categoryID:'category 9'
+  },
+]
 
 const Category = () => {
   return (
@@ -13,12 +57,8 @@ const Category = () => {
           Product Categories
         </h1>
         <div className="grid grid-cols-3 grid-rows-[auto] gap-5">
-          <CategoryItem />
-          <CategoryItem />
-          <CategoryItem />
-          <CategoryItem />
-          <CategoryItem />
-          <CategoryItem />
+          {categoryArr.map(({ imageURL, title, categoryID }, index)=> <CategoryItem
+          key={index} imageURL={imageURL} title={title} categoryID={categoryID} />)}
         </div>
       </section>
     </MainContainer>
@@ -27,16 +67,23 @@ const Category = () => {
 
 export default Category;
 
-const CategoryItem = () => {
+const CategoryItem = ({imageURL , title , categoryID}) => {
   return (
-    <IconButton sx={{color:'red', padding:'1px', borderRadius:'6px'}}>
-    <div className="w-full rounded-md flex flex-col items-center">
+    <Link to={`category/${categoryID}`}>
+    <IconButton sx={{
+      padding: 0,
+      margin: 0,
+      boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+      borderRadius: "6px",
+    }}>
+    <div className=" m-1 w-full py-6 px-3 rounded-md flex flex-col items-center">
       <img
-        src="https://lovelymeregis.co.uk/thumbs/Images/gallery/DSC_2474.jpg"
-        alt="category item"
+        src={imageURL}
+        alt={title} className=" rounded-full w-[50px] h-[50px]"
       />
-      <h2> Category name</h2>
+      <h2 className=" text-[10px] sm:text-sm text-black mt-3 font-bold">{title}</h2>
     </div>
     </IconButton>
+    </Link>
   );
 };

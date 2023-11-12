@@ -64,6 +64,7 @@ const productArr = [
     productTitle: "product title 10",
   },
 ];
+
 const Product = ({ title }) => {
   return (
     <section
