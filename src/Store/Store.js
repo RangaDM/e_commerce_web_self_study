@@ -3,7 +3,7 @@ import CategoryReducer from './Slices/CategorySlice'
 
 const store = configureStore({
     reducer: {
-        category: CategoryReducer.reducer,
+        category: CategoryReducer,
     }
 })
 

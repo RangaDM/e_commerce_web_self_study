@@ -26,7 +26,6 @@ const Footer = () => {
           Icon={HomeOutlinedIcon}
           iconText="Home"
         />
-        <div className="mr-3"/>
         <FooterIcon
           clickFun={{ whoIsClick, setWhoIsClick }}
           Icon={AppsOutlinedIcon}
@@ -39,7 +38,6 @@ const Footer = () => {
           Icon={AccountCircleOutlinedIcon}
           iconText="Profile"
         />
-        <div className="mr-3"/>
         <FooterIcon
           clickFun={{ whoIsClick, setWhoIsClick }}
           Icon={AddTaskIcon}
