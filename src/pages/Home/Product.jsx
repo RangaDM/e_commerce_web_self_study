@@ -112,8 +112,8 @@ const ProductUnit = ({ imageUrl, price, productTitle, id }) => (
     />
     <div className=" px-1 sm:px-2">
       <h3 className=" text-xs sm:text-sm md:text-lg text-justify font-semibold text-stone-900">
-        {String(productTitle).substring(0, 49)}
-        {String(productTitle).length > 49 ? "..." : null}
+        {String(productTitle).substring(0, 25)}
+        {String(productTitle).length > 25 ? "..." : null}
       </h3>
       <Rating
         name={imageUrl}

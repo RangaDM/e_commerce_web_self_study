@@ -3,7 +3,7 @@ import MainContainer from "../../Layout/MainContainer";
 import { useSelector } from "react-redux";
 import { categorySelector } from "../../Store/Slices/CategorySlice";
 import { useParams } from "react-router-dom";
-import { IconButton, Rating } from "@mui/material";
+import { Rating, ListItemButton } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const categoryArr = [
@@ -42,10 +42,10 @@ const CategoryItems = () => {
 
   return (
     <MainContainer>
-      <h1 className=" text-lg font-bold mt-2 ml-2 mb-3">
+      <h1 className=" text-lg font-bold mt-2 ml-2 mb-7">
         {categoryTitle.title}
       </h1>
-      <div className="w-full grid grid-cols-3 grid-rows[auto] gap-8">
+      <div className="w-full grid grid-cols-3 grid-rows[auto] gap-5">
         {categoryArr.map((e, i) => (
           <CategoryItemUnit
             key={i}
@@ -64,12 +64,11 @@ export default CategoryItems;
 const CategoryItemUnit = ({ imageUrl, title, val }) => {
   return (
     <Link to={`item`}>
-      <IconButton
+      <ListItemButton
         sx={{
           padding: 0,
           margin: 0,
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-          borderRadius: "6px",
         }}
       >
         <div
@@ -78,18 +77,17 @@ const CategoryItemUnit = ({ imageUrl, title, val }) => {
         >
           <img src={imageUrl} alt={title} />
           <div className=" w-full mx-2 mb-2">
-
-          <h3 className=" text-left text-sm font-bold">{title}</h3>
-          <Rating
-            name={imageUrl}
-            value={val}
-            precision={0.1}
-            size="small"
-            readOnly
-          />
+            <h3 className=" text-left text-sm font-bold">{title}</h3>
+            <Rating
+              name={imageUrl}
+              value={val}
+              precision={0.1}
+              size="small"
+              readOnly
+            />
           </div>
         </div>
-      </IconButton>
-      </Link>
+      </ListItemButton>
+    </Link>
   );
 };

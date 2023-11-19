@@ -1,6 +1,6 @@
 import React from "react";
 import MainContainer from "../../Layout/MainContainer";
-import { IconButton } from "@mui/material";
+import { ListItemButton } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const categoryArr = [
@@ -70,12 +70,14 @@ export default Category;
 const CategoryUnitItem = ({imageURL , title , categoryID}) => {
   return (
     <Link to={`/category/${categoryID}`}>
-    <IconButton sx={{
-      padding: 0,
-      margin: 0,
-      boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-      borderRadius: "6px",
-    }}>
+    <ListItemButton
+      sx={{
+        padding: 0,
+        margin: 0,
+        boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+        borderRadius: "6px",
+      }}
+    >
     <div className=" m-1 w-full py-6 px-3 rounded-md flex flex-col items-center">
       <img
         src={imageURL}
@@ -83,7 +85,7 @@ const CategoryUnitItem = ({imageURL , title , categoryID}) => {
       />
       <h2 className=" text-[10px] sm:text-sm text-black mt-3 font-bold">{title}</h2>
     </div>
-    </IconButton>
+    </ListItemButton>
     </Link>
   );
 };
