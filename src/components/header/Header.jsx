@@ -101,7 +101,7 @@ const Header = ({ paymentModalRef }) => {
       </div>
       {/* header right */}
       <IconButton
-        onClick={() => {
+        onClick={()=>{
           paymentModalRef.current.handleOpen();
         }}
       >
