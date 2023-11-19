@@ -4,30 +4,31 @@ import { useSelector } from "react-redux";
 import { categorySelector } from "../../Store/Slices/CategorySlice";
 import { useParams } from "react-router-dom";
 import { IconButton, Rating } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const categoryArr = [
   {
     imageURL:
       "https://www.bestoflanka.com/images/slider/best-things-to-do-in-sri-lanka/beach-destinations-sri-lanka/01.jpg",
-    title: "Category name 1",
+    title: "Item name 1",
     val: 2,
   },
   {
     imageURL:
       "https://www.bestoflanka.com/images/slider/best-things-to-do-in-sri-lanka/beach-destinations-sri-lanka/01.jpg",
-    title: "Category name 2",
+    title: "Item name 2",
     val: 2.5,
   },
   {
     imageURL:
       "https://www.bestoflanka.com/images/slider/best-things-to-do-in-sri-lanka/beach-destinations-sri-lanka/01.jpg",
-    title: "Category name 3",
+    title: "Item name 3",
     val: 4.5,
   },
   {
     imageURL:
       "https://www.bestoflanka.com/images/slider/best-things-to-do-in-sri-lanka/beach-destinations-sri-lanka/01.jpg",
-    title: "Category name 4",
+    title: "Item name 4",
     val: 3,
   },
 ];
@@ -62,7 +63,7 @@ export default CategoryItems;
 
 const CategoryItemUnit = ({ imageUrl, title, val }) => {
   return (
-    // <Link to={`/category/${title}`}>
+    <Link to={`item`}>
       <IconButton
         sx={{
           padding: 0,
@@ -89,6 +90,6 @@ const CategoryItemUnit = ({ imageUrl, title, val }) => {
           </div>
         </div>
       </IconButton>
-      // </Link>
+      </Link>
   );
 };

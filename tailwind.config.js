@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "my-background": "#5873d1",
+        "my-background": "#1e88e5",
       },
       dropShadow: {
         "header-shadow": "rgba(0, 0, 0, 0.35) 0px 5px 15px",

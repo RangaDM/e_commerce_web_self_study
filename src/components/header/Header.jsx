@@ -1,19 +1,36 @@
-import React from "react";
-import "tailwindcss/tailwind.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { IconButton } from "@mui/material";
-import { useState } from "react";
 
-const Header = () => {
-  const [issearch, setisSearch] = useState(false);
+import { IconButton } from "@mui/material";
+import { useRef } from "react";
+
+let clicked = false;
+
+const Header = ({ paymentModalRef }) => {
+  console.log("Header Re-renderring");
+
+  const logoRef = useRef();
+  const searchBoxRef = useRef();
+  const searchBoxContainerRef = useRef();
+
+  const searchButtonClickHandle = () => {
+    if (clicked) {
+      logoRef.current.style = "display:none;";
+      searchBoxRef.current.style = "display:inline-block;";
+      searchBoxContainerRef.current.style.backgroundColor = "#fdf3f3";
+    } else {
+      logoRef.current.style = "display:inline-block;";
+      searchBoxRef.current.style = "display:none;";
+      searchBoxContainerRef.current.style.backgroundColor = "inherit";
+    }
+  };
 
   return (
     <header className=" fixed top-0 left-0 z-[100] w-full p-2 bg-my-background flex items-center justify-between drop-shadow-header-shadow">
-      {/* left side */}
+      {/* header left */}
       <div className=" flex items-center">
-      <IconButton sx={{ color: "red" }}>
+        <IconButton sx={{ color: "red" }}>
           <MenuIcon
             sx={{
               color: "#c82196",
@@ -21,35 +38,39 @@ const Header = () => {
           />
         </IconButton>
         <h1
+          ref={logoRef}
           style={{
             display:
               window.innerWidth < 640
-                ? issearch
+                ? clicked
                   ? "none"
                   : "inline-block"
                 : "inline-block",
           }}
-          className=" ml-4 text-m font-bold"
+          className=" ml-2 text-sm font-bold"
         >
-          Learn <span className=" text-[#c82196]">S</span>
+          Learn <span className=" text-[#c82196]">s</span>
         </h1>
-        <div style={{
+        <div
+          ref={searchBoxContainerRef}
+          style={{
             backgroundColor:
               window.innerWidth < 640
-                ? issearch
+                ? clicked
                   ? "#fdf3f3"
                   : "inherit"
-                : "#6f86e4",
+                : "#fdf3f3",
           }}
-          className=" overflow-hidden ml-4 h-11 flex items-center rounded-full bg-[#fdf3f3]"
+          className=" overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]"
         >
           <input
+            ref={searchBoxRef}
             type="text"
             placeholder="Search"
             style={{
               display:
                 window.innerWidth < 640
-                  ? issearch
+                  ? clicked
                     ? "inline-block"
                     : "none"
                   : "inline-block",
@@ -57,15 +78,33 @@ const Header = () => {
             }}
             className=" hidden sm:inline-block ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit"
           />
-          <IconButton onClick={() => setisSearch(true)}>
-            <SearchIcon className="m-2 text-gray-900" />
+          <IconButton
+            onClick={() => {
+              if (window.innerWidth < 640) {
+                clicked = !clicked;
+                searchButtonClickHandle();
+              }
+            }}
+          >
+            <SearchIcon
+              sx={{
+                color:
+                  window.innerWidth < 640
+                    ? clicked
+                      ? "rgb(156 163 175)"
+                      : "black"
+                    : "rgb(156 163 175)",
+              }}
+            />
           </IconButton>
         </div>
       </div>
-
-
-      {/* right side */}
-      <IconButton>
+      {/* header right */}
+      <IconButton
+        onClick={() => {
+          paymentModalRef.current.handleOpen();
+        }}
+      >
         <div className=" relative p-1">
           <ShoppingCartOutlinedIcon className=" text-black" />
           <div className=" absolute top-[2px] right-0 text-[7px] font-semibold text-white bg-black flex items-center justify-center w-3 h-3 rounded-full">
